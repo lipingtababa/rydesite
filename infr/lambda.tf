@@ -1,8 +1,8 @@
-resource "aws_lambda_function" "web_lambda" {
-	filename      = "./requestUnicorn.js.zip"
-	function_name = "RequestUnicorn"
+resource "aws_lambda_function" "web_lambda_function" {
+	filename      = "././index.js.zip"
+	function_name = "unicorn"
 	role          = "${aws_iam_role.web_role.arn}"
-	handler       = "exports.test"
+	handler       = "index.handler"
 	runtime	      = "nodejs8.10"
 
 	environment {
@@ -10,4 +10,5 @@ resource "aws_lambda_function" "web_lambda" {
 			foo = "bar"
 		}
 	}
+	tags = {usage="rydesite"}
 }
